@@ -3,7 +3,7 @@ const inputBtn = document.querySelector(".input-btn");
 const result = document.querySelector(".result");
 
 function escapeRexExp(string) {
-    const regex = /[`~!@#$%^&*()-_=+|{};" :'/?><,.]/g;
+    const regex = /[^a-zA-Z0-9]/g;
     return string.replace(regex, "");
 }
 
@@ -14,7 +14,11 @@ const stringToArrayOfCharacters = (e) => {
 };
 
 inputBtn.addEventListener("click", () => {
-    if (textInput.value !== "") {
+    if (textInput.value === "") { // Check if empty
+        return alert("Please input a value");
+    } else if (!isNaN(textInput.value)) { // Check if number
+        return alert("Please input a value that isn't a number");
+    } else if (textInput.value !== "") {
         console.log(firstToLast());
         console.log(lastToFirst());
         console.log(checkPalindrome());
@@ -24,8 +28,6 @@ inputBtn.addEventListener("click", () => {
             return (result.innerText =
                 textInput.value + " is not a palindrome");
         }
-    } else {
-        return alert("Please input a value");
     }
 });
 
