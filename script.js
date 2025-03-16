@@ -18,7 +18,7 @@ inputBtn.addEventListener("click", () => {
         return alert("Please input a value");
     } else if (!isNaN(textInput.value)) { // Check if number
         return alert("Please input a value that isn't a number");
-    } else if (textInput.value !== "") {
+    } else if (textInput.value !== "") { 
         console.log(firstToLast());
         console.log(lastToFirst());
         console.log(checkPalindrome());
